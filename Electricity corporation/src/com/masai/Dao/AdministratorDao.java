@@ -14,7 +14,7 @@ public interface AdministratorDao {
 
 	public List<Consumer> VeiwAllconsumer() throws AdministratorException;
 
-	public Bill viewBillbyConsumerid(int consumer_id) throws AdministratorException;
+	public List<Bill> viewBillbyConsumerid(int consumer_id) throws AdministratorException;
 	
 	public  List<Bill> ViewAllBills() throws AdministratorException;
 	

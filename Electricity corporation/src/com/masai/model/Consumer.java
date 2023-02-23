@@ -5,11 +5,11 @@ public class Consumer {
 	int admin_id;
 	String c_username;
 	String c_password;
-	boolean is_active;
+	String is_active;
 	public Consumer() {
 		
 	}
-	public Consumer(int consumer_id, int admin_id, String c_username, String c_password, boolean is_active) {
+	public Consumer(int consumer_id, int admin_id, String c_username, String c_password,String is_active) {
 		super();
 		this.consumer_id = consumer_id;
 		this.admin_id = admin_id;
@@ -41,10 +41,10 @@ public class Consumer {
 	public void setC_password(String c_password) {
 		this.c_password = c_password;
 	}
-	public boolean isIs_active() {
+	public String getIs_active() {
 		return is_active;
 	}
-	public void setIs_active(boolean is_active) {
+	public void setIs_active(String is_active) {
 		this.is_active = is_active;
 	}
 	@Override
@@ -52,6 +52,7 @@ public class Consumer {
 		return "Consumer [consumer_id=" + consumer_id + ", admin_id=" + admin_id + ", c_username=" + c_username
 				+ ", c_password=" + c_password + ", is_active=" + is_active + "]";
 	}
+
 	
 	
 	
