@@ -1,5 +1,5 @@
 # Electricity corporation
-
+## ER Diagram
 ![Database tables](https://user-images.githubusercontent.com/112688918/221222215-15dbc974-135a-429c-a2de-72325b1c9785.png)
 
 
