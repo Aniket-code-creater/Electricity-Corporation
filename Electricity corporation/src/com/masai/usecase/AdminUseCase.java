@@ -71,6 +71,11 @@ public class AdminUseCase {
 			DeleteConsumerById();
 			break;
 		}
+		default :
+			System.out.println("Invalid choice");
+			AdminUseCase adm=new AdminUseCase();
+			adm.main(args);
+			
 		}
 		
 		
