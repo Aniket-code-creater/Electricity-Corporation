@@ -8,6 +8,7 @@ import com.masai.Dao.ConsumerDaoImpl;
 
 import com.masai.Exceptions.ConsumerException;
 import com.masai.customcolor.ConsoleColor.ConsoleColors;
+import com.masai.main.Main;
 import com.masai.model.Bill;
 import com.masai.model.Consumer;
 
@@ -19,9 +20,12 @@ public class ConsumerUseCase {
 		System.out.println(ConsoleColors.WHITE_BACKGROUND+"-------------------------------------------------------");
 		System.out.println(ConsoleColors.GREEN_BOLD+"|| Please Choose Your Action :-");
 		System.out.println(ConsoleColors.GREEN_BOLD+"--------------------------------------");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Login Consumer                    |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[2] PayBill                           |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[3] View Transaction History          |");
+//		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Login Consumer                    |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] PayBill                           |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[2] View Transaction History          |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[3] Go Back                           |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[4] Exit                              |");
+		
 
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"----------------------------------------------------------|"+ConsoleColors.RESET);
 		
@@ -30,16 +34,22 @@ public class ConsumerUseCase {
 		
 		int choice =sc.nextInt();
 		switch(choice) {
-		case 1:{
-				Login();
-				break;
-		}
-		case 2: {
+		
+		case 1: {
 			PayBill();
 			break;
 		}
-		case 3 :{
+		case 2 :{
 			TransactionHistory();
+			break;
+		}
+		case 3:{
+			Main m1=new Main();
+			m1.main(args);
+			break;
+		}
+		case 4:{
+			System.out.println(ConsoleColors.GREEN_BOLD+"ThanYou for useing Application! Visit Again ");
 			break;
 		}
 		default:
@@ -54,36 +64,36 @@ public class ConsumerUseCase {
 	}
 	
 	
-	
-	public static void Login() {
-		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Name :");
-		String Username=sc.next();
-		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Password :");
-		String password=sc.next();
-		Consumer conn= new Consumer();
-		try {
-			conn=dao.LoginConsumer(Username, password);
-			System.out.println(ConsoleColors.GREEN_BOLD+"Welcome "+ conn.getC_username());
-//			System.out.println("-----------------------------------------------------");
-			
-			
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Id : "+conn.getConsumer_id());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Id : "+ conn.getAdmin_id());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Name : "+ conn.getC_username());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Comsumer Password : "+conn.getC_password());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Active status: "+conn.getIs_active());
-			
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"-------------------------------------------------------");
-			
-		} catch (ConsumerException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-//			e.printStackTrace();
-		}
-		
-		
-		
-	}
+//	
+//	public static void Login() {
+//		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Name :");
+//		String Username=sc.next();
+//		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Password :");
+//		String password=sc.next();
+//		Consumer conn= new Consumer();
+//		try {
+//			conn=dao.LoginConsumer(Username, password);
+//			System.out.println(ConsoleColors.GREEN_BOLD+"Welcome "+ conn.getC_username());
+////			System.out.println("-----------------------------------------------------");
+//			
+//			
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Id : "+conn.getConsumer_id());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Id : "+ conn.getAdmin_id());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Name : "+ conn.getC_username());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Comsumer Password : "+conn.getC_password());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Active status: "+conn.getIs_active());
+//			
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"-------------------------------------------------------");
+//			
+//		} catch (ConsumerException e) {
+//			// TODO Auto-generated catch block
+//			System.out.println(e.getMessage());
+////			e.printStackTrace();
+//		}
+//		
+//		
+//		
+//	}
 	
 	public static void  PayBill() {
 		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Id :");

@@ -8,6 +8,7 @@ import com.masai.Dao.AdministratorDao;
 import com.masai.Dao.AdministratorDaoImpl;
 import com.masai.Exceptions.AdministratorException;
 import com.masai.customcolor.ConsoleColor.ConsoleColors;
+import com.masai.main.Main;
 import com.masai.model.Administrator;
 import com.masai.model.Bill;
 import com.masai.model.Consumer;
@@ -21,14 +22,16 @@ public class AdminUseCase {
 		System.out.println(ConsoleColors.WHITE_BACKGROUND+"-------------------------------------------------------");
 		System.out.println(ConsoleColors.GREEN_BOLD+"|| Please Choose Your Action :-");
 		System.out.println(ConsoleColors.GREEN_BOLD+"--------------------------------------");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Login Admin                           |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[2] Register new consumer                 |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[3] View All Consumer                     |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[4] View bill of Consumer                 |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[5] View all the bills                    |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[6] View all the bills Paid               |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[7] View all the bills Panding            |");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[8] Delete Consumer                       |");
+//		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Login Admin                           |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Register new consumer                 |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[2] View All Consumer                     |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[3] View bill of Consumer                 |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[4] View all the bills                    |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[5] View all the bills Paid               |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[6] View all the bills Panding            |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[7] Delete Consumer                       |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[8] Go Back                               |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[9] Exit                                  |");
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"----------------------------------------------------------|"+ConsoleColors.RESET);
 		
 		System.out.println(" ");
@@ -36,39 +39,45 @@ public class AdminUseCase {
 		
 		int choice =sc.nextInt();
 		switch(choice) {
-		case 1:{
-				Login();
-				break;
-		}
-		case 2: {
+		
+		case 1: {
 				Register();
 				break;
 		}
-		case 3: {
+		case 2: {
 				ViewAllConsumer();
 				break;
 			
-		}case 4:{
+		}case 3:{
 			ViewBillByconsumerIdUseCase();
 			break;
 		}
-		case 5 :{
+		case 4 :{
 			VeiwAllBills();
 			break;
 			
 			
 		}
-		case 6 : {
+		case 5 : {
 			ViewAllPaidBills();
 			break;
 			
 		}
-		case 7 : {
+		case 6 : {
 			ViewAllPendingBills();
 			break;
 			
-		}case 8 :{
+		}case 7 :{
 			DeleteConsumerById();
+			break;
+		}
+		case 8:{
+			Main m1=new Main();
+			m1.main(args);
+			break;
+		}
+		case 9:{
+			System.out.println(ConsoleColors.GREEN_BOLD+"ThanYou for useing Application! Visit Again ");
 			break;
 		}
 		default :
@@ -83,34 +92,34 @@ public class AdminUseCase {
 	
 	
 	
-	public static void Login() {
-		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Email :");
-		String email=sc.next();
-		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Password :");
-		String pass=sc.next();
-		Administrator ad= new Administrator();
-		try {
-			ad=dao.LoginAdminAcount(email, pass);
-			System.out.println(ConsoleColors.GREEN_BOLD+"Welcome "+ad.getAd_username());
-//			System.out.println("-----------------------------------------------------");
-			
-			
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Id : "+ad.getAdmin_id());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Name : "+ad.getAd_username());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Email : "+ad.getAd_email());
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Password : "+ad.getAd_password());
-			
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"-------------------------------------------------------");
-			
-		} catch (AdministratorException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		
-		
-		
-	}
+//	public static void Login() {
+//		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Email :");
+//		String email=sc.next();
+//		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Password :");
+//		String pass=sc.next();
+//		Administrator ad= new Administrator();
+//		try {
+//			ad=dao.LoginAdminAcount(email, pass);
+//			System.out.println(ConsoleColors.GREEN_BOLD+"Welcome "+ad.getAd_username());
+////			System.out.println("-----------------------------------------------------");
+//			
+//			
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Id : "+ad.getAdmin_id());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Name : "+ad.getAd_username());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Email : "+ad.getAd_email());
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Admin Password : "+ad.getAd_password());
+//			
+//			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"-------------------------------------------------------");
+//			
+//		} catch (AdministratorException e) {
+//			// TODO Auto-generated catch block
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		
+//	}
 	
 	public static void Register() {
 //		Scanner sc= new Scanner(System.in);

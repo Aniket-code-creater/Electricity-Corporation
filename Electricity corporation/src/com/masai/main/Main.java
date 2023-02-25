@@ -12,6 +12,7 @@ import com.masai.customcolor.ConsoleColor.ConsoleColors;
 import com.masai.model.Administrator;
 import com.masai.model.Consumer;
 import com.masai.usecase.AdminUseCase;
+import com.masai.usecase.ConsumerUseCase;
 
 public class Main {
 	static Scanner sc= new Scanner(System.in);
@@ -22,8 +23,9 @@ public class Main {
 		System.out.println(ConsoleColors.WHITE_BACKGROUND+"-------------------------------------------------------");
 		System.out.println(ConsoleColors.GREEN_BOLD+"|| Please Choose Your Action :-");
 		System.out.println(ConsoleColors.GREEN_BOLD+"--------------------------------------");
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Admin Login                          |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[1] Admin Login                    |");
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[2] Consumer Login                 |");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"[3] Exit                           |");
 		
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"----------------------------------------------------------|"+ConsoleColors.RESET);
 		
@@ -33,9 +35,23 @@ public class Main {
 		int choice =sc.nextInt();
 		switch(choice) {
 		case 1:{
-				LoginAdmin();
+				LoginAdmin(args);
 				break;
 		}
+		case 2:{
+			Login(args);
+			break;
+			
+		}
+		case 3:{
+//			System.out.println("ThanYou for useing Application! Visit Again");
+			System.out.println(ConsoleColors.GREEN_BOLD+"ThanYou for useing Application! Visit Again ");
+			break;
+		}
+		default :
+			System.out.println("Oops! Invalid choice");
+		Main m=new Main();
+		m.main(args);
 		
 		
 		
@@ -43,8 +59,8 @@ public class Main {
 	}
 	
 	
-	public static void LoginAdmin() {
-		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Email :");
+	public static void LoginAdmin(String[] args) {
+		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Admin Email :");
 		String email=sc.next();
 		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Password :");
 		String pass=sc.next();
@@ -64,6 +80,10 @@ public class Main {
 			
 			
 			
+			AdminUseCase admin=new AdminUseCase();
+			admin.main(args);
+			
+			
 		} catch (AdministratorException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -75,7 +95,7 @@ public class Main {
 	}
 	
 	
-	public static void Login() {
+	public static void Login(String[] args) {
 		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Consumer Name :");
 		String Username=sc.next();
 		System.out.println(ConsoleColors.YELLOW_UNDERLINED+"Enter Password :");
@@ -94,6 +114,9 @@ public class Main {
 			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Active status: "+conn.getIs_active());
 			
 			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"-------------------------------------------------------");
+			
+			ConsumerUseCase con =new  ConsumerUseCase();
+			con.main(args);
 			
 		} catch (ConsumerException e) {
 			// TODO Auto-generated catch block
