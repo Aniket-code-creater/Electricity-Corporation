@@ -1,9 +1,9 @@
 # Electricity corporation
 The electricity corporation application is an application to pay and view the bills of consumers. This application is very helpful to pay the bills consumers and store all bill data of consumers So that Consumers can pay their electricity bills very easily.
 ## Tech Stack and Tools Used :-
-Java
-Mysql
-Spring boot
+### Java
+### Mysql
+### Spring boot
 
 ## ER Diagram
 ![Database tables](https://user-images.githubusercontent.com/112688918/221222215-15dbc974-135a-429c-a2de-72325b1c9785.png)
