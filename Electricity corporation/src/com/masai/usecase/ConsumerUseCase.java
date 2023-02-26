@@ -37,10 +37,14 @@ public class ConsumerUseCase {
 		
 		case 1: {
 			PayBill();
+			ConsumerUseCase con=new ConsumerUseCase();
+			con.main(args);
 			break;
 		}
 		case 2 :{
 			TransactionHistory();
+			ConsumerUseCase con=new ConsumerUseCase();
+			con.main(args);
 			break;
 		}
 		case 3:{

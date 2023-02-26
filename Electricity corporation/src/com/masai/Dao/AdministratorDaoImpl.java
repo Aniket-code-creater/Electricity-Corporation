@@ -177,6 +177,7 @@ public class AdministratorDaoImpl implements AdministratorDao{
 				bill.setAmount_paid(rs.getDouble("amount_paid"));
 				bill.setDue_date(rs.getDate("due_date"));
 				bill.setPayment_date(rs.getDate("payment_date"));
+				list.add(bill);
 				
 			}
 			

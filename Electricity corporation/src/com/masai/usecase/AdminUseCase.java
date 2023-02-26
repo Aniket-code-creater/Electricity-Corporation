@@ -42,33 +42,47 @@ public class AdminUseCase {
 		
 		case 1: {
 				Register();
+				AdminUseCase adm=new AdminUseCase();
+				adm.main(args);
 				break;
 		}
 		case 2: {
 				ViewAllConsumer();
+				AdminUseCase adm=new AdminUseCase();
+				adm.main(args);
 				break;
 			
 		}case 3:{
 			ViewBillByconsumerIdUseCase();
+			AdminUseCase adm=new AdminUseCase();
+			adm.main(args);
 			break;
 		}
 		case 4 :{
 			VeiwAllBills();
+			AdminUseCase adm=new AdminUseCase();
+			adm.main(args);
 			break;
 			
 			
 		}
 		case 5 : {
 			ViewAllPaidBills();
+			AdminUseCase adm=new AdminUseCase();
+			adm.main(args);
 			break;
 			
 		}
 		case 6 : {
 			ViewAllPendingBills();
+			AdminUseCase adm=new AdminUseCase();
+			adm.main(args);
 			break;
 			
 		}case 7 :{
 			DeleteConsumerById();
+			AdminUseCase adm=new AdminUseCase();
+			adm.main(args);
 			break;
 		}
 		case 8:{
@@ -145,6 +159,7 @@ public class AdminUseCase {
 			e.printStackTrace();
 		}
 		
+		
 	}
 	
 	
@@ -168,6 +183,8 @@ public class AdminUseCase {
 					System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD+"Consumer Active Status         |"+i.getIs_active());
 
 					System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"----------------------------------------------------------|"+ConsoleColors.RESET);
+					
+					
 					
 				});
 				
